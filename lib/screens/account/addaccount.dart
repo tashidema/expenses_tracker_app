@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'package:expenses/domain/transaction/transaction_model.dart';
+import 'package:expenses/domain/transaction/transaction_repo.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -13,6 +15,22 @@ class AddAccount extends StatefulWidget {
 }
 
 class _AddAccountState extends State<AddAccount> {
+
+      List<TransactionModel> transaction= [];  
+
+      @override
+  void initState(){  
+  loadDataTrans();
+  }
+
+Future<void> loadDataTrans() async{
+  List<TransactionModel> res =await loadTransactionData();  
+  setState(() {
+    transaction = res;
+  });
+} 
+ 
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -40,9 +58,21 @@ class _AddAccountState extends State<AddAccount> {
               ),
               Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: TextFormField(
+                child: DropdownButtonFormField<String>(
+                  padding: EdgeInsets.symmetric(horizontal: 8),
                   decoration: InputDecoration(
-                      border: OutlineInputBorder(), labelText: 'Type'),
+                    border: OutlineInputBorder(),
+                    labelText: 'Type',
+                  ),
+                  onChanged: (value) {
+                    
+                  },
+                  items: transaction.map<DropdownMenuItem<String>>((TransactionModel transactions) {
+                    return DropdownMenuItem<String>(
+                      value: transactions.type,
+                      child: Text(transactions.type),
+                    );
+                  }).toList(),
                 ),
               ),
               Padding(

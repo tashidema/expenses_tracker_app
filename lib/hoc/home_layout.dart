@@ -14,7 +14,7 @@ class HomeLayout extends StatefulWidget {
 class _HomeLayoutState extends State<HomeLayout> {
   int _selectedIndex = 0;
 
-  List<String> titles = ['Home', 'Account','Profile'];
+  List<String> titles = ['Home', 'Accounts','AddAccount'];
   List<Widget> screens = [
     HomeScreen(),
     AccountScreen(),
@@ -42,7 +42,7 @@ class _HomeLayoutState extends State<HomeLayout> {
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home),label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.star),label: 'Accounts'),
-                    BottomNavigationBarItem(icon: Icon(Icons.person),label: 'Profile'),
+          BottomNavigationBarItem(icon: Icon(Icons.person),label: 'AddAccount'),
         ],
       ),
     );
