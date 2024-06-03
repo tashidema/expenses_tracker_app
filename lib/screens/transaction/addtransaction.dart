@@ -63,7 +63,8 @@ Future<void> loadDataTrans() async{
                         decoration: InputDecoration(
                             border: OutlineInputBorder(),
                             labelText: 'Statement'),
-                      )),
+                      )
+                      ),
                   Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: TextFormField(
@@ -75,6 +76,7 @@ Future<void> loadDataTrans() async{
                 Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: DropdownButtonFormField<String>(
+                  padding: EdgeInsets.symmetric(horizontal: 16),
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Account',
@@ -94,6 +96,7 @@ Future<void> loadDataTrans() async{
           Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: DropdownButtonFormField<String>(
+                  padding: EdgeInsets.symmetric(horizontal: 16),
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Expenses',
